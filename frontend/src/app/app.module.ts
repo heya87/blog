@@ -9,7 +9,6 @@ import { EditComponent } from './components/edit/edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule,
   MatCardModule,
   MatButtonModule,
@@ -20,15 +19,20 @@ import { MatInputModule,
 import { HeaderComponent } from './components/header/header.component';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
     CreateComponent,
     EditComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,8 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-
     ReactiveFormsModule,
+    FormsModule,
     RouterModule,
     SlimLoadingBarModule,
   ],
