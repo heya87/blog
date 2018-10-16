@@ -18,10 +18,11 @@ import { MatInputModule,
   MatPaginatorModule} from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
 import { PostService } from './services/post.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthInterceptor } from './auth/auth-intercepter';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     RouterModule,
     SlimLoadingBarModule,
   ],
-  providers: [PostService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

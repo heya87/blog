@@ -51,9 +51,11 @@ router.post('/login', (req, res, next) => {
         'secret_this_should_be_very_long_and_complicated',
         { expiresIn: '1h' }
       );
-      res
-        .status(200)
-        .json({ message: 'Successfully logged in.', token: token });
+      res.status(200).json({
+        message: 'Successfully logged in.',
+        token: token,
+        expiresIn: 3600
+      });
     })
     .catch(err => {
       return res.status(401).json({
